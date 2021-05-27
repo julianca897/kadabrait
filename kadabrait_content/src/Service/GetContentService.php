@@ -46,7 +46,7 @@ class GetContentService implements GetContentInterface {
   public function getContentUser(int $mount): array {
     $entity_handler = $this->entityTypeManager->getStorage('node');
     $query = $entity_handler->getQuery();
-    $data = $query->condition('uid', '1')->range(0, $mount)
+    $data = $query->condition('uid', $this->current_user->id())->range(0, $mount)
       ->sort('created', 'desc')->execute();
     return $entity_handler->loadMultiple($data);
   }
