@@ -1,0 +1,7 @@
+kadabrait_content.user_content:
+  path: '/kadabrait/user-content'
+  defaults:
+    _controller: '\Drupal\kadabrait_content\Controller\UserContentController::pageUserContent'
+    _title: 'User Content'
+  requirements:
+    _role: 'authenticated'

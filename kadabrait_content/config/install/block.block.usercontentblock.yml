@@ -1,0 +1,34 @@
+uuid: 2101ae7f-c39a-461e-891e-1c86f7da3778
+langcode: en
+status: true
+dependencies:
+  module:
+    - kadabrait_content
+    - system
+    - user
+  theme:
+    - bartik
+id: usercontentblock
+theme: globant_corp_theme
+region: sidebar_first
+weight: 0
+provider: null
+plugin: user_content_block
+settings:
+  id: user_content_block
+  label: 'User content block'
+  provider: kadabrait_content
+  label_display: visible
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }
+  user_role:
+    id: user_role
+    roles:
+      authenticated: authenticated
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

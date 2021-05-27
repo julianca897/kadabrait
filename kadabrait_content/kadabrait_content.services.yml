@@ -1,0 +1,7 @@
+services:
+  logger.channel.kadabrait_content:
+    parent: logger.channel_base
+    arguments: ['kadabrait_content']
+  kadabrait_content_service.default:
+    class: Drupal\kadabrait_content\Service\GetContentService
+    arguments: ['@entity_type.manager', '@current_user']
