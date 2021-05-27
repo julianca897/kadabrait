@@ -34,7 +34,7 @@ class GetContentService implements GetContentInterface {
   /**
    * Function for return content created by current user.
    *
-   * @param int $mount
+   * @param int $amount
    *   Content amount.
    *
    * @return array
@@ -43,10 +43,10 @@ class GetContentService implements GetContentInterface {
    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    */
-  public function getContentUser(int $mount): array {
+  public function getContentUser(int $amount): array {
     $entity_handler = $this->entityTypeManager->getStorage('node');
     $query = $entity_handler->getQuery();
-    $data = $query->condition('uid', $this->current_user->id())->range(0, $mount)
+    $data = $query->condition('uid', $this->current_user->id())->range(0, $amount)
       ->sort('created', 'desc')->execute();
     return $entity_handler->loadMultiple($data);
   }
